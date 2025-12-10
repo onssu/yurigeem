@@ -8,7 +8,7 @@ import Image from "next/image";
 
 const navItems = [
   { href: "/about", label: "About" },
-  { href: "/portfolio", label: "Portfolio" },
+  { href: "/projects", label: "Projects" },
 ];
 
 export default function Header() {
@@ -22,11 +22,7 @@ export default function Header() {
   return (
     <>
       <header className="fixed top-0 left-0 w-full z-50 bg-transparent py-4 px-6 flex items-center justify-between">
-        <Link
-          key={"/"}
-          href={"/"}
-          className={["relative transition-colors"].join(" ")}
-        >
+        <Link href="/" className="relative transition-colors">
           <Image
             src="/images/logo_black.png"
             alt="logo"
@@ -35,6 +31,7 @@ export default function Header() {
           />
         </Link>
 
+        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8 text-black font-semibold">
           {navItems.map((item) => (
             <Link
@@ -42,22 +39,23 @@ export default function Header() {
               href={item.href}
               className={[
                 "relative transition-colors",
-                "after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-pink-400 after:transition-all after:duration-300",
+                "after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-sky-400 after:transition-all after:duration-300",
                 isActive(item.href)
-                  ? "text-pink-300 after:w-full"
-                  : "hover:text-pink-300 hover:after:w-full",
+                  ? "text-sky-500 after:w-full"
+                  : "hover:text-sky-500 hover:after:w-full",
               ].join(" ")}
             >
               {item.label}
             </Link>
           ))}
+
+          {/* GitHub */}
           <Link
-            key={"https://github.com/onssu"}
-            href={"https://github.com/onssu"}
+            href="https://github.com/onssu"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setOpen(false)}
-            className="flex items-start gap-1 text-lg font-semibold tracking-tight"
+            className="flex items-start gap-1 text-lg font-semibold tracking-tight hover:text-sky-500 transition-colors"
           >
             Github
             <svg
@@ -75,13 +73,13 @@ export default function Header() {
             </svg>
           </Link>
 
+          {/* Blog */}
           <Link
-            key={"https://onssu.tistory.com/"}
-            href={"https://onssu.tistory.com/"}
+            href="https://onssu.tistory.com/"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setOpen(false)}
-            className="flex items-start gap-1 text-lg font-semibold tracking-tight"
+            className="flex items-start gap-1 text-lg font-semibold tracking-tight hover:text-sky-500 transition-colors"
           >
             Blog
             <svg
@@ -100,9 +98,9 @@ export default function Header() {
           </Link>
         </nav>
 
-        {/* 모바일 햄버거 버튼 */}
+        {/* Mobile Menu Button */}
         <button
-          className={"md:hidden text-black"}
+          className="md:hidden text-black"
           onClick={() => setOpen(true)}
           aria-label="Open menu"
         >
@@ -110,6 +108,7 @@ export default function Header() {
         </button>
       </header>
 
+      {/* Mobile Menu Overlay */}
       <div
         className={[
           "fixed inset-0 z-60 transition-opacity duration-300",
@@ -123,6 +122,7 @@ export default function Header() {
           onClick={() => setOpen(false)}
           aria-label="Close menu"
         />
+
         <div
           className={[
             "absolute top-0 right-0 h-full w-3/4 max-w-[260px]",
@@ -135,18 +135,19 @@ export default function Header() {
           ].join(" ")}
         >
           <div className="flex items-center justify-between mb-4">
-            <span className="text-sm uppercase tracking-[0.25em] text-pink-300/80">
+            <span className="text-sm uppercase tracking-[0.25em] text-sky-400/80">
               Menu
             </span>
             <button
               onClick={() => setOpen(false)}
               aria-label="Close menu"
-              className="text-black hover:text-pink-300 transition-colors"
+              className="text-black hover:text-sky-400 transition-colors"
             >
               <X size={24} />
             </button>
           </div>
 
+          {/* Mobile Nav */}
           <nav className="flex flex-col gap-4 mt-2">
             {navItems.map((item, index) => (
               <Link
@@ -158,20 +159,21 @@ export default function Header() {
                   "transition-all duration-300",
                   `delay-[${index * 60}ms]`,
                   isActive(item.href)
-                    ? "text-pink-300"
-                    : "text-black/90 hover:text-pink-300",
+                    ? "text-sky-500"
+                    : "text-black/90 hover:text-sky-500",
                 ].join(" ")}
               >
                 {item.label}
               </Link>
             ))}
+
+            {/* GitHub */}
             <Link
-              key={"https://github.com/onssu"}
-              href={"https://github.com/onssu"}
+              href="https://github.com/onssu"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
-              className="flex items-start gap-1 text-lg font-semibold tracking-tight"
+              className="flex items-start gap-1 text-lg font-semibold tracking-tight hover:text-sky-500 transition-colors"
             >
               Github
               <svg
@@ -188,13 +190,14 @@ export default function Header() {
                 <path d="M7 7h10v10" />
               </svg>
             </Link>
+
+            {/* Blog */}
             <Link
-              key={"https://onssu.tistory.com/"}
-              href={"https://onssu.tistory.com/"}
+              href="https://onssu.tistory.com/"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
-              className="flex items-start gap-1 text-lg font-semibold tracking-tight"
+              className="flex items-start gap-1 text-lg font-semibold tracking-tight hover:text-sky-500 transition-colors"
             >
               Blog
               <svg

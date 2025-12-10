@@ -185,7 +185,7 @@ export default function PCEmojiField() {
             ref={(el) => {
               if (el) emojiElsRef.current[i] = el;
             }}
-            className="absolute text-3xl md:text-4xl select-none will-change-transform drop-shadow-[0_0_10px_rgba(0,0,0,0.7)]"
+            className="absolute text-3xl md:text-4xl select-none will-change-transform drop-shadow-[0_0_2px_rgba(0,0,0,0.7)]"
             style={{
               transform: "translate(-100px, -100px)",
             }}

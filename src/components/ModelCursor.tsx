@@ -43,4 +43,4 @@ export function YurigeemLookAtCursor() {
   );
 }
 
-useGLTF.preload("/models/Untitled.glb");
+useGLTF.preload("/models/yurigeem.glb");

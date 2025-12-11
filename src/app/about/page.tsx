@@ -3,6 +3,42 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import LifeTimeline from "@/components/ui/LifeTimeLine";
+import Image from "next/image";
+
+const skills = [
+  {
+    key: "javascript",
+    name: "JavaScript / TypeScript",
+    logo: "/logo/JavaScript.png", // 실제 경로로 교체
+    level: 5, // 1~5
+    label: "상",
+    desc: "프로젝트 전반에서 타입 설계, 비동기 로직, 리팩토링까지 주도적으로 수행할 수 있어요.",
+  },
+  {
+    key: "react",
+    name: "React / Next.js",
+    logo: "/logo/React.png",
+    level: 5,
+    label: "상",
+    desc: "상태 관리, 성능 최적화, 라우팅/SSR까지 포함해 서비스 한 개를 end-to-end로 구현할 수 있어요.",
+  },
+  {
+    key: "vue",
+    name: "Vue 2 / Vue 3",
+    logo: "/logo/Vue.png",
+    level: 4,
+    label: "중상",
+    desc: "컴포넌트 설계, 상태 관리, 라우팅 등을 활용해 중형 규모의 화면 개발을 안정적으로 맡을 수 있어요.",
+  },
+  {
+    key: "flutter",
+    name: "Flutter",
+    logo: "/logo/Flutter.png",
+    level: 3,
+    label: "중",
+    desc: "한 프로젝트를 끝까지 수행해 본 경험으로, 기존 구조 안에서 신규 화면/기능은 무리 없이 구현할 수 있어요.",
+  },
+];
 
 export default function AboutPage() {
   const rootRef = useRef<HTMLElement | null>(null);
@@ -248,6 +284,83 @@ export default function AboutPage() {
           </div>
 
           <LifeTimeline />
+        </div>
+      </section>
+
+      <section className="fullpage-section h-screen w-full flex flex-col items-center justify-center px-6 py-20 bg-slate-50">
+        <div className="w-full max-w-5xl mx-auto">
+          <header className="text-center mb-10">
+            <p className="text-xs md:text-sm uppercase tracking-[0.2em] text-sky-500/80">
+              Frontend Skill Map
+            </p>
+            <h2 className="mt-2 text-2xl md:text-3xl font-bold text-slate-900">
+              현재 프론트엔드 기술 활용도
+            </h2>
+            <p className="mt-3 text-sm md:text-base text-slate-600">
+              실무 프로젝트 경험을 기준으로, 각 기술을 어느 정도 깊이까지 활용할
+              수 있는지 정리했어요.
+            </p>
+          </header>
+
+          <div className="grid gap-5 md:grid-cols-2">
+            {skills.map((skill) => {
+              const percent = (skill.level / 5) * 100;
+
+              return (
+                <div
+                  key={skill.key}
+                  className="flex gap-4 rounded-2xl border border-slate-100 bg-slate-50/60 p-4 shadow-sm bg-white/60"
+                >
+                  {/* 아이콘 */}
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center">
+                      <Image
+                        src={skill.logo}
+                        alt={skill.name}
+                        width={32}
+                        height={32}
+                        className="object-contain"
+                      />
+                    </div>
+                  </div>
+
+                  {/* 내용 */}
+                  <div className="flex-1 space-y-2">
+                    <div className="flex items-center justify-between gap-2">
+                      <div>
+                        <p className="text-sm font-semibold text-slate-900">
+                          {skill.name}
+                        </p>
+                        <p className="text-[11px] text-slate-500">
+                          레벨 {skill.level} / 5
+                        </p>
+                      </div>
+                      <span className="inline-flex items-center rounded-full bg-sky-50 px-2 py-1 text-[11px] font-medium text-sky-700">
+                        {skill.label}
+                      </span>
+                    </div>
+
+                    {/* 게이지 바 */}
+                    <div className="h-1.5 w-full rounded-full bg-slate-200 overflow-hidden">
+                      <div
+                        className="h-full rounded-full bg-sky-500 transition-all"
+                        style={{ width: `${percent}%` }}
+                      />
+                    </div>
+
+                    <p className="text-[11px] leading-snug text-slate-600">
+                      {skill.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <p className="mt-6 text-[11px] text-slate-400 text-center">
+            ※ 레벨 기준: 1 입문 · 2 기초 · 3 중 · 4 중상 · 5 상 (리딩 및 구조
+            설계까지 가능)
+          </p>
         </div>
       </section>
     </main>

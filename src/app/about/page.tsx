@@ -129,9 +129,9 @@ export default function AboutPage() {
       className="h-screen w-full overflow-y-scroll overscroll-none scroll-smooth"
     >
       {/* 섹션 1 - 인사 & 핵심 역량 */}
-      <section className="fullpage-section h-screen w-full flex flex-col items-center justify-center gap-6 px-6">
+      <section className="fullpage-section h-screen w-full flex flex-col items-center justify-center gap-6 px-6 bg-white">
         <div className="text-center space-y-2">
-          <h1 className="text-xl md:text-2xl font-semibold">
+          <h1 className="text-x text-slate-900 l md:text-2xl font-semibold">
             안녕하세요, 4년차 프론트앤드 김유리입니다.
           </h1>
           <p className="text-sm md:text-base text-zinc-600">
@@ -141,7 +141,7 @@ export default function AboutPage() {
 
         <div className="grid gap-4 md:grid-cols-3 w-full max-w-4xl mt-6">
           <div className="group p-6 rounded-2xl border border-zinc-200 bg-white shadow-md hover:shadow-xl transition-shadow duration-300">
-            <h3 className="text-xl font-semibold mb-2 tracking-tight">
+            <h3 className="text-xl text-slate-900 font-semibold mb-2 tracking-tight">
               사용자 중심 개발
             </h3>
             <p className="text-sm text-zinc-600 leading-relaxed">
@@ -151,7 +151,7 @@ export default function AboutPage() {
           </div>
 
           <div className="group p-6 rounded-2xl border border-zinc-200 bg-white shadow-md hover:shadow-xl transition-shadow duration-300">
-            <h3 className="text-xl font-semibold mb-2 tracking-tight">
+            <h3 className="text-xl text-slate-900  font-semibold mb-2 tracking-tight">
               문제 해결 능력
             </h3>
             <p className="text-sm text-zinc-600 leading-relaxed">
@@ -161,7 +161,7 @@ export default function AboutPage() {
           </div>
 
           <div className="group p-6 rounded-2xl border border-zinc-200 bg-white shadow-md hover:shadow-xl transition-shadow duration-300">
-            <h3 className="text-xl font-semibold mb-2 tracking-tight">
+            <h3 className="text-xl text-slate-900  font-semibold mb-2 tracking-tight">
               성능 및 품질 개선
             </h3>
             <p className="text-sm text-zinc-600 leading-relaxed">

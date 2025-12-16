@@ -2,6 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
 import PhoneMockup from "@/components/PhoneMockup";
+import { CompanyBadge } from "@/components/CompanyLogo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -62,17 +63,8 @@ export default async function PortfolioDetailPage({ params }: Props) {
               </h1>
 
               <div className="space-y-1 text-sm md:text-md text-slate-600">
-                <p className="flex flex-wrap items-center gap-1">
-                  <span className="font-semibold text-slate-900">
-                    {project.company}
-                  </span>
-                  {project.client && (
-                    <>
-                      <span className="text-slate-300">•</span>
-                      <span>{project.client}</span>
-                    </>
-                  )}
-                </p>
+                <CompanyBadge company={project.company} />
+                <p className="text-slate-500">{project.description}</p>
 
                 <p className="flex flex-wrap items-center gap-2 pt-1">
                   <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2 py-[3px]">

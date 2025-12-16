@@ -112,9 +112,9 @@ export default function PortfolioPage() {
 
   return (
     <main className="min-h-screen py-24 px-6 bg-slate-50">
-      <section className="max-w-6xl mx-auto space-y-8">
+      <section className="max-w-6xl mx-auto space-y-4">
         {/* 헤더 */}
-        <header className="space-y-3">
+        <header className="space-y-2">
           <p className="text-sm tracking-[0.2em] uppercase text-sky-500/80">
             Projects
           </p>
@@ -128,7 +128,7 @@ export default function PortfolioPage() {
         </header>
 
         {/* 상단 컨트롤 영역: 스택 필터 + 정렬/레이아웃 */}
-        <section className="space-y-4">
+        <section className="space-y-3">
           {/* 기술 스택 필터 */}
           <div className="flex flex-wrap gap-3">
             {/* 전체(기본값) */}
@@ -137,7 +137,7 @@ export default function PortfolioPage() {
               onClick={() => setSelectedTech("ALL")}
               className={[
                 "px-4 py-2 rounded-full border transition",
-                "text-sm md:text-base font-medium",
+                "text-[13px] font-medium",
                 selectedTech === "ALL"
                   ? "bg-sky-600 text-white border-sky-600"
                   : "bg-white text-slate-700 border-slate-200 hover:border-sky-300 hover:bg-sky-50",
@@ -157,7 +157,7 @@ export default function PortfolioPage() {
                     "px-4 py-2",
                     "flex items-center gap-2",
                     "rounded-full border transition whitespace-nowrap",
-                    "text-sm md:text-base font-medium",
+                    "text-[13px] font-medium",
                     active
                       ? "bg-sky-100 text-sky-700 border-sky-400"
                       : "bg-white text-slate-700 border-slate-200 hover:border-sky-300 hover:bg-sky-50",
@@ -179,7 +179,7 @@ export default function PortfolioPage() {
           </div>
 
           {/* 정렬 + 레이아웃 스위처 */}
-          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between mt-10">
+          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between mt-3">
             {/* 정렬 */}
             <div className="flex items-center gap-2 text-xs md:text-sm">
               <span className="text-slate-500">정렬</span>

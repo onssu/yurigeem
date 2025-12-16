@@ -5,7 +5,7 @@ import PCEmojiField from "@/components/PCEmojiField";
 
 export default function HomePage() {
   return (
-    <div className="w-full h-screen">
+    <div className="w-full h-screen bg-white">
       {/* PC 전용 */}
       <div className="hidden md:block">
         <PCEmojiField />

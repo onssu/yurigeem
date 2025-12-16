@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
+import PhoneMockup from "@/components/PhoneMockup";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -280,6 +281,11 @@ export default async function PortfolioDetailPage({ params }: Props) {
             </div>
           </section>
         )}
+        {/* <PhoneMockup
+          src={project.thumbnail!}
+          alt={project.title}
+          className="block w-full h-auto"
+        /> */}
       </section>
     </main>
   );

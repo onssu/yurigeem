@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { projects, TechStack } from "@/data/projects";
+import { CompanyBadge } from "@/components/CompanyLogo";
 
 type SortOption = "newest" | "oldest" | "longest";
 type LayoutOption = "grid2" | "grid3" | "list";
@@ -321,10 +322,7 @@ export default function PortfolioPage() {
                     <h2 className="text-base md:text-lg font-semibold text-slate-900 group-hover:text-sky-600 transition-colors">
                       {project.title}
                     </h2>
-                    <p className="text-xs text-slate-500">
-                      {project.company}
-                      {project.client ? ` · ${project.client}` : ""}
-                    </p>
+                    <CompanyBadge company={project.company} />
                   </div>
                   <div className="flex items-start justify-between text-[11px] text-slate-500 gap-2">
                     {/* 왼쪽: 날짜 + 개별 작업기간 */}
@@ -363,14 +361,7 @@ export default function PortfolioPage() {
                     {project.techs.map((t) => (
                       <span
                         key={t}
-                        className="
-                          px-2 py-[2px]
-                          flex items-center gap-1   
-                          rounded-full bg-slate-100
-                          text-[10px] text-slate-700
-                          border border-slate-200
-                          whitespace-nowrap          
-                        "
+                        className="px-2 py-[2px] flex items-center gap-1 rounded-full bg-slate-100 text-[10px] text-slate-700 border border-slate-200 whitespace-nowrap"
                       >
                         {TECH_ICONS[t] && (
                           <Image

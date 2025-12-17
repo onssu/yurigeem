@@ -21,7 +21,16 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full z-50 bg-transparent py-4 px-6 flex items-center justify-between">
+      <header
+        className={[
+          "fixed top-0 left-0 w-full z-50",
+          "py-4 px-6 flex items-center justify-between",
+          // ✅ glass header
+          "backdrop-blur-md bg-white/70",
+          "border-b border-black/10",
+          "supports-[backdrop-filter]:bg-white/50", // blur 지원 브라우저에서 더 예쁘게
+        ].join(" ")}
+      >
         <Link href="/" className="relative transition-colors">
           <Image
             src="/images/logo_black.png"

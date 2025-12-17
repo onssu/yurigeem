@@ -64,7 +64,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
 
               <div className="space-y-1 text-sm md:text-md text-slate-600">
                 <CompanyBadge company={project.company} />
-                <p className="text-slate-500">{project.description}</p>
+                <p className="text-slate-500 mt-1">{project.description}</p>
 
                 <p className="flex flex-wrap items-center gap-2 pt-1">
                   <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2 py-[3px]">
@@ -115,7 +115,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
               <span
                 key={t}
                 className="flex items-center gap-1.5 px-2.5 py-[5px] rounded-full
-                   bg-sky-50 text-[11px] text-sky-800 border border-sky-100"
+                   bg-sky-50 text-[13px] text-sky-800 border border-sky-100"
               >
                 {TECH_ICONS[t] && (
                   <Image
@@ -177,10 +177,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
               </div>
             </div>
           )}
-        </header>
 
-        {/* ========== 2. 기여도 + 주요 성과 카드 ========== */}
-        <section className="rounded-3xl border border-slate-200 bg-white shadow-sm p-5 md:p-7 space-y-6">
           {/* 기여도 테이블 */}
           <div className="space-y-3">
             <h2 className="text-md font-semibold text-slate-900">
@@ -191,13 +188,13 @@ export default async function PortfolioDetailPage({ params }: Props) {
               <table className="w-full text-xs md:text-sm">
                 <thead className="bg-sky-50">
                   <tr>
-                    <th className="px-3 py-2 text-left font-semibold text-slate-700">
+                    <th className="px-3 py-1 text-left font-semibold text-slate-700">
                       단계
                     </th>
-                    <th className="px-3 py-2 text-left font-semibold text-slate-700">
+                    <th className="px-3 py-1 text-left font-semibold text-slate-700">
                       인원 구성 (기획 / 디자인 / 백엔드 / 프론트)
                     </th>
-                    <th className="px-3 py-2 text-left font-semibold text-slate-700">
+                    <th className="px-3 py-1 text-left font-semibold text-slate-700">
                       기여도
                     </th>
                   </tr>
@@ -209,10 +206,10 @@ export default async function PortfolioDetailPage({ params }: Props) {
                       key={idx}
                       className="border-t border-slate-200 odd:bg-white even:bg-slate-50/70"
                     >
-                      <td className="px-3 py-2 text-slate-700">
+                      <td className="px-3 py-1 text-slate-700">
                         {phaseLabel(c.phase)}
                       </td>
-                      <td className="px-3 py-2 text-slate-700">
+                      <td className="px-3 py-1 text-slate-700">
                         {[
                           c.breakdown.planning ?? 0,
                           c.breakdown.design ?? 0,
@@ -220,7 +217,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
                           c.breakdown.frontend ?? 0,
                         ].join(" / ")}
                       </td>
-                      <td className="px-3 py-2 text-slate-700">
+                      <td className="px-3 py-1 text-slate-700">
                         {c.contributionPercent}%
                       </td>
                     </tr>
@@ -229,10 +226,13 @@ export default async function PortfolioDetailPage({ params }: Props) {
               </table>
             </div>
           </div>
+        </header>
 
+        {/* ========== 2. 기여도 + 주요 성과 카드 ========== */}
+        <section className="rounded-3xl border border-slate-200 bg-white shadow-sm p-5 md:p-7 space-y-6">
           {/* 주요 성과 리스트 */}
           {project.highlights && project.highlights.length > 0 && (
-            <div className="pt-4 border-t border-slate-100 space-y-3">
+            <div className="space-y-3">
               <h2 className="text-md font-semibold text-slate-900">
                 주요 성과
               </h2>

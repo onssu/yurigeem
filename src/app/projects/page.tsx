@@ -224,7 +224,7 @@ export default function PortfolioPage() {
             </div>
 
             {/* 레이아웃 */}
-            <div className="flex items-center gap-2 text-xs md:text-sm">
+            <div className="hidden md:flex flex items-center gap-2 text-xs md:text-sm ">
               <span className="text-slate-500">레이아웃</span>
               <div className="inline-flex rounded-lg border border-slate-200 bg-white p-[2px]">
                 <button
